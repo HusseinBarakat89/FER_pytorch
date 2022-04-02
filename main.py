@@ -27,9 +27,6 @@ class App:
 
 if __name__ == '__main__':
     app = App()
-    img = cv2.imread('OIP.jpg')
-    app.detect(img)
-"""
     cap = cv2.VideoCapture(0)
     while True:
         # Read the frame
@@ -41,7 +38,6 @@ if __name__ == '__main__':
             break
     cap.release()
 
-"""
 
 
 
