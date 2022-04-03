@@ -9,14 +9,14 @@ class App:
         self.model = torch.jit.load('model_scripted.pt')
         self.model.float()
         self.emotion_dict = {0: 'Angry', 1: 'Disgust', 2: 'Fear', 3: 'Happy', 4: 'Sad', 5: 'Surprise', 6: 'Neutral'}
-        self.transform = transforms.Compose([transforms.ToTensor()])
+        self.transform = transforms.Compose([transforms.ToTensor(), transforms.Resize((48, 48))])
 
     def detect(self, img):
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         faces = self.face_cascade.detectMultiScale(img)
         for (x, y, w, h) in faces:
             cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 2)
-            img_for_model = cv2.resize(gray[y:y + h, x:x + w], (48, 48)) / 255
+            img_for_model = gray[y:y + h, x:x + w] / 255
             img_for_model = self.transform(img_for_model).unsqueeze(0)
             with torch.no_grad():
                 self.model.eval()
