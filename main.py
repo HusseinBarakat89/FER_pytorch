@@ -7,6 +7,7 @@ class App:
     def __init__(self):
         self.face_cascade = cv2.CascadeClassifier('./face_detection/haarcascade_frontalface_default.xml')
         self.model = torch.jit.load('model_scripted.pt')
+        self.model.float()
         self.emotion_dict = {0: 'Angry', 1: 'Disgust', 2: 'Fear', 3: 'Happy', 4: 'Sad', 5: 'Surprise', 6: 'Neutral'}
         self.transform = transforms.Compose([transforms.ToTensor()])
 
@@ -19,7 +20,6 @@ class App:
             img_for_model = self.transform(img_for_model).unsqueeze(0)
             with torch.no_grad():
                 self.model.eval()
-                self.model.float()
                 y = self.model.cpu()(img_for_model.float())
                 pred = self.emotion_dict[y.argmax(1).item()]
                 print(pred)
