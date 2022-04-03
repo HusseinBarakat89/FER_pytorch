@@ -16,7 +16,7 @@ class App:
         faces = self.face_cascade.detectMultiScale(img)
         for (x, y, w, h) in faces:
             cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 2)
-            img_for_model = gray[y:y + h, x:x + w] / 255
+            img_for_model = gray[y:y + h, x:x + w]
             img_for_model = self.transform(img_for_model).unsqueeze(0)
             with torch.no_grad():
                 self.model.eval()
