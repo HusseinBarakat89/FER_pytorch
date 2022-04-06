@@ -20,9 +20,9 @@ class App:
             img_for_model = self.transform(img_for_model).unsqueeze(0)
             with torch.no_grad():
                 self.model.eval()
-                y = self.model.cpu()(img_for_model.float())
-                pred = self.emotion_dict[y.argmax(1).item()]
-                print(pred)
+                pred = self.model.cpu()(img_for_model.float())
+                pred = self.emotion_dict[pred.argmax(1).item()]
+                cv2.putText(img, pred, ((int) (x+0.25*w), (int) (y-10)), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 200, 100))
         cv2.imshow('img', img)
 
 
@@ -34,7 +34,6 @@ if __name__ == '__main__':
         # Read the frame
         _, img = cap.read()
         app.detect(img)
-
         key = cv2.waitKey(30) & 0xff
         if key == 27:
             break
