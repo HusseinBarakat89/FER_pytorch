@@ -5,3 +5,5 @@ The pipeline is detecting faces using Haar cascade features using OpenCV impleme
 The preprocessed image is feeded to a VGG-like convnet implemented using pytorch and has been trained on the dataset [FER2013](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/data) with 67.5% accuracy on test set.
 
 The original dataset and paper were published in 2013 under the name of <b>"Challenges in Representation Learning: A report on three machine learning contests" </b> by I Goodfellow, Y. Bengio et al. - [arXiv 2013](https://arxiv.org/pdf/1307.0414v1.pdf).
+
+An explaining video and Testing is available on this [link](https://www.linkedin.com/posts/hussein-barakat-576aa5106_machinelearning-ai-practicemakesperfect-activity-6917894549897900032-3hTp?utm_source=linkedin_share&utm_medium=member_desktop_web)
