@@ -2,7 +2,7 @@
 In this repo a facial emotion recognition pipeline is constructed and deployed.\
 
 The pipeline is detecting faces using Haar cascade features using OpenCV implementation. Then preprocessing the data to adjusted it to the required format for the model.\
-The preprocessed image is feeded to a VGG-like convnet implemented using pytorch and has been trained on the dataset [FER2013](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/data) with 67.5% accuracy on test set.
+The preprocessed image is feeded to a VGG-like convnet implemented using pytorch and has been trained on the dataset [FER2013](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/data) with 67.5% accuracy on validation set.
 
 The original dataset and paper were published in 2013 under the name of <b>"Challenges in Representation Learning: A report on three machine learning contests" </b> by I Goodfellow, Y. Bengio et al. - [arXiv 2013](https://arxiv.org/pdf/1307.0414v1.pdf).
 
